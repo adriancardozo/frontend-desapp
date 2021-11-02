@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Quotations from './pages/Quotations';
 import Activities from './pages/Activities';
 import CryptoCurrencies from './pages/CryptoCurrencies';
+import Users from './pages/Users';
 
 function App() {
       return (
@@ -43,6 +44,7 @@ function App() {
           <PrivateRoute path="/quotations" component={Quotations} />
           <PrivateRoute path="/activities" component={Activities} />
           <PrivateRoute path="/cryptos" component={CryptoCurrencies} />
+          <PrivateRoute path="/users" component={Users} />
         </Switch>
       </SessionProvider>
     </Router>
