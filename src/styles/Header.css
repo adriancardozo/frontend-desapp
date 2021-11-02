@@ -1,0 +1,21 @@
+.mobile-logout-button-col {
+    display: none;
+}
+  
+@media only screen and (max-width: 768px) {
+    .header-col {
+      flex: unset;
+    }
+  
+    .header-row * {
+      width: auto;
+    }
+  
+    .logout-button-col {
+      display: none;
+    }
+  
+    .mobile-logout-button-col {
+      display: block;
+    }
+}

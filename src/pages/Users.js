@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import LoggedinPage from "../component/LoggedinPage";
 import { useUsers } from "../services/users";
 
 const Users = (props) => {
@@ -10,12 +11,16 @@ const Users = (props) => {
           .catch(() => props.history.push('/error'));
       }, [setUserList]);
 
-    return(userList.map(user => <>
-        <div>{user.name}</div>
-        <div>{user.lastname}</div>
-        <div>{user.operations}</div>
-        <div>{user.reputation}</div>
-    </>))
+    return(
+        <LoggedinPage>
+            {userList.map(user => <>
+                <div>{user.name}</div>
+                <div>{user.lastname}</div>
+                <div>{user.operations}</div>
+                <div>{user.reputation}</div>
+            </>)}
+        </LoggedinPage>
+    )
 }
 
 export default Users

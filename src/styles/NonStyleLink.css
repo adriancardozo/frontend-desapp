@@ -1,0 +1,9 @@
+.non-style-link {
+    text-decoration: none;
+    color: unset;
+  }
+  
+.non-style-link:hover {
+    color: unset;
+    text-decoration: none;
+}

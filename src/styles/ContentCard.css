@@ -1,0 +1,11 @@
+
+.content-card {
+    height: auto;
+}
+  
+@media only screen and (max-width: 768px) {
+    .content-card .card-body {
+      padding-right: 0;
+      padding-left: 0;
+    }
+}
