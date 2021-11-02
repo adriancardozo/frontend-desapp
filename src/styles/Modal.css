@@ -1,0 +1,23 @@
+.modal-fade-block {
+    display: block;
+}
+
+.modal-fade-none {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .modal-dialog-modalfade {
+        max-width: unset;
+        display: flex;
+        width: 40%;
+        height: 100%;
+    }
+}
+
+.modal-fade .modal-content {
+    min-height: 260px;
+}
+.modal-dialog-modalfade {
+    height: 100%;
+}
