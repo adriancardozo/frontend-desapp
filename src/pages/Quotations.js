@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import ContentCard from "../component/ContentCard";
+import ContentCardBody from "../component/ContentCardBody";
 import LoggedinPage from "../component/LoggedinPage";
 import { useQuotations } from "../services/quotations";
 
@@ -14,9 +16,13 @@ const Quotations = (props) => {
     return(
         <LoggedinPage>
             {cryptoQuotations.map(cryptoQuotation => <>
-                <div>{cryptoQuotation.name}</div>
-                <div>{cryptoQuotation.arPrice}</div>
-                <div>{cryptoQuotation.quotationHour}</div>
+                <ContentCard className="activity-card">
+                    <ContentCardBody>
+                        <div><b>Cryptocurrency name: </b>{cryptoQuotation.name}</div>
+                        <div><b>Quotation (ARS): </b>{cryptoQuotation.arPrice}</div>
+                        <div><b>Quotation hour: </b>{cryptoQuotation.quotationHour}</div>
+                    </ContentCardBody>
+                </ContentCard>
             </>)}
         </LoggedinPage>
     )
