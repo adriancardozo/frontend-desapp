@@ -2,16 +2,15 @@ import React, { useEffect, useState } from "react";
 import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
 import LoggedinPage from "../component/LoggedinPage";
-import { useQuotations } from "../services/quotations";
+import { quotations } from "../services/quotations";
 
 const Quotations = (props) => {
-    const { quotations } = useQuotations()
     const [cryptoQuotations, setCryptoQuotations] = useState([])
 
     useEffect(() => {
         quotations(setCryptoQuotations)
           .catch(() => props.history.push('/error'));
-      }, [setCryptoQuotations]);
+      }, [setCryptoQuotations, props.history]);
 
     return(
         <LoggedinPage>

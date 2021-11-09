@@ -1,6 +1,14 @@
 .mobile-logout-button-col {
     display: none;
 }
+
+#navbarTogglerDemo02 {
+  transition: height .35s ease;
+}
+
+.header-mobile-logout-button {
+  display: none;
+}
   
 @media only screen and (max-width: 768px) {
     .header-col {
@@ -11,8 +19,15 @@
       width: auto;
     }
   
+    .header-logout-button {
+      display: none;
+    }
+
     .logout-button-col {
       display: none;
+    }
+    .header-mobile-logout-button {
+      display: inline-block;
     }
   
     .mobile-logout-button-col {

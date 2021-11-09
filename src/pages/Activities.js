@@ -3,21 +3,20 @@ import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
 import LoggedinPage from "../component/LoggedinPage";
 import '../styles/Activities.css'
-import { useActivities } from "../services/activities";
+import { activities } from "../services/activities";
 
 const Activities = (props) => {
-    const { activities } = useActivities()
     const [activityList, setActivityList] = useState([])
 
     useEffect(() => {
         activities(setActivityList)
           .catch(() => props.history.push('/error'));
-      }, [setActivityList]);
+      }, [setActivityList, props.history]);
 
     return(
         <LoggedinPage>
-            {activityList.map(activity =>
-                <ContentCard className="activity-card">
+            {activityList.map((activity, i) =>
+                <ContentCard key={`activity-${i}`} className="activity-card">
                     <ContentCardBody>
                         <div><b>Hour: </b>{activity.hour}</div>
                         <div><b>Cryptocurrency name: </b>{activity.cryptoCurrencyName}</div>

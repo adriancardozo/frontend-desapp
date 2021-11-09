@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
 import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
-import Header from "../component/Header";
 import LoggedinPage from "../component/LoggedinPage";
-import { useCryptoCurrencies } from "../services/cryptoCurrencies";
+import { cryptoCurrencies } from "../services/cryptoCurrencies";
 
 const CryptoCurrencies = (props) => {
-    const { cryptoCurrencies } = useCryptoCurrencies()
     const [cryptoCurrencyList, setCryptoCurrencyList] = useState([])
 
     useEffect(() => {
         cryptoCurrencies(setCryptoCurrencyList)
           .catch(() => props.history.push('/error'));
-      }, [setCryptoCurrencyList]);
+      }, [setCryptoCurrencyList, props.history]);
 
     return(
         <LoggedinPage>

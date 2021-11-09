@@ -1,14 +1,11 @@
 import React from 'react'
 import { useLogout } from '../services/logout.js';
-import CursorLink from './CursorLink.js';
 
-const LogoutButton = ({ className }) => {
+const LogoutButton = ({ className, children }) => {
   const { logout } = useLogout();
 
   return(
-    <CursorLink className={className} onClick={ logout }>
-      <h3>Logout</h3>
-    </CursorLink>
+    <button onClick={ logout } className={`btn btn-sm btn-outline-danger ${className}`} type="button">{children}</button>
   );
 }
 

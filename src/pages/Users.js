@@ -2,16 +2,15 @@ import React, { useEffect, useState } from "react";
 import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
 import LoggedinPage from "../component/LoggedinPage";
-import { useUsers } from "../services/users";
+import { users } from "../services/users";
 
 const Users = (props) => {
-    const { users } = useUsers()
     const [userList, setUserList] = useState([])
 
     useEffect(() => {
         users(setUserList)
           .catch(() => props.history.push('/error'));
-      }, [setUserList]);
+      }, [setUserList, props.history]);
 
     return(
         <LoggedinPage>
