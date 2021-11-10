@@ -3,7 +3,7 @@ import React, { createContext, useMemo, useState } from 'react'
 const SessionContext = createContext({
   state: {
     isAuthenticated: false,
-    user: {id: "", name: "", image: "", followers: [], timeline: [], token: ""}
+    user: {token: ""} // id: "", name: "", image: "", followers: [], timeline: [], 
   },
   actions: {
     setUser: (user) => {}

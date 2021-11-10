@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import ErrorMessage from "../component/ErrorMessage";
 import Modal from "../component/Modal";
 import { useRegister } from "../services/register";
 import '../styles/Register.css'
@@ -19,6 +20,7 @@ const Register = () => {
 
     const signUp = (event) => {
         event.preventDefault();
+        console.log(cvu)
         if(password === repeatedPassword) {
             register({ name, lastname, address, email, password, cvu, walletAddress })
                 .catch(error => setErrorMessage(error.response.status === 409 ? 
@@ -31,6 +33,15 @@ const Register = () => {
         }
     }
 
+    const onChangeValue = (e, setFunction) => {
+        setFunction(e.target.value);
+        setErrorMessage("");
+    }
+
+    const onChangeNumberValue = (e, setFunction, customValidity) => {
+        onChangeValue(e, setFunction)
+        e.target.setCustomValidity(e.target.value.match('^\\d+$') ? "" : customValidity);
+    }
 
     return (
         <Modal backdrop={true}>
@@ -39,41 +50,39 @@ const Register = () => {
                     <h3 className="text-center">Sign Up</h3>
                     <div className="form-group">
                         <label>First name</label>
-                        <input required type="text" className="form-control" placeholder="First name" onChange={ e => { setName(e.target.value); setErrorMessage("") } }/>
+                        <input required type="text" minLength={10} maxLength={30} className="form-control" placeholder="First name" onChange={ e => { onChangeValue(e, setName) } }/>
                     </div>
                     <div className="form-group">
                         <label>Last name</label>
-                        <input required type="text" className="form-control" placeholder="Last name" onChange={ e => { setLastname(e.target.value); setErrorMessage("") } }/>
+                        <input required type="text" minLength={10} maxLength={30} className="form-control" placeholder="Last name" onChange={ e => { onChangeValue(e, setLastname) } }/>
                     </div>
                     <div className="form-group">
                         <label>Email address</label>
-                        <input required type="email" className="form-control" placeholder="Enter email" onChange={ e => { setEmail(e.target.value); setErrorMessage("") } }/>
+                        <input required type="email" className="form-control" placeholder="Enter email" onChange={ e => { onChangeValue(e, setEmail) } }/>
                     </div>
                     <div className="form-group">
                         <label>Password</label>
-                        <input required type="password" className="form-control" placeholder="Enter password" onChange={ e => { setPassword(e.target.value); setErrorMessage("") } }/>
+                        <input required type="password" className="form-control" placeholder="Enter password" onChange={ e => { onChangeValue(e, setPassword) } }/>
                     </div>
                     <div className="form-group">
                         <label>Repeat your password</label>
-                        <input required type="password" className="form-control" placeholder="Enter password" onChange={ e => { setRepeatedPassword(e.target.value); setErrorMessage("") } }/>
+                        <input required type="password" className="form-control" placeholder="Enter password" onChange={ e => { onChangeValue(e, setRepeatedPassword) } }/>
                     </div>
                     <div className='form-group'>
                         <label htmlFor="address">Address</label>
-                        <input required type="text" className="form-control" placeholder= "Enter Address" onChange={ e => { setAddress(e.target.value); setErrorMessage("") } }/>
+                        <input required type="text" minLength={0} maxLength={30} className="form-control" placeholder= "Enter Address" onChange={ e => { onChangeValue(e, setAddress) } }/>
                     </div>
                     <div className='form-group'>
                         <label htmlFor="cvu">CVU</label>
-                        <input required type="text" className="form-control" placeholder= "Enter CVU" onChange={ e => { setCvu(e.target.value); setErrorMessage("") } }/>
+                        <input required type="text" minLength={22} maxLength={22} pattern="^\d+$" className="form-control" placeholder= "Enter CVU" onChange={ e => onChangeNumberValue(e, setCvu, "Ingrese un número de 22 dígitos.") }/>
                     </div>
                     <div className='form-group'>
                         <label htmlFor="wallet-address">Wallet Address</label>
-                        <input required type="text" className="form-control" placeholder= "Enter Wallet Address" onChange={ e => { setWalletAddress(e.target.value); setErrorMessage("") } }/>
+                        <input required type="text" minLength={8} maxLength={8} pattern="^\d+$" className="form-control" placeholder= "Enter Wallet Address" onChange={ e => { onChangeNumberValue(e, setWalletAddress, "Ingrese un número de 8 dígitos.") } }/>
                     </div>
+                    <ErrorMessage>{errorMessage}</ErrorMessage>
                     <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-                    <p> {/*className="forgot-password text-right">*/}
-                        Already registered <Link to="/sign-in">sign in?</Link>
-                    </p>
-                    <p>{errorMessage}</p>
+                    <p>Already registered <Link to="/sign-in">sign in?</Link></p>
                 </form>
             </div>
         </Modal>
