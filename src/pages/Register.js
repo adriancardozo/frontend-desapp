@@ -44,17 +44,17 @@ const Register = () => {
     }
 
     return (
-        <Modal backdrop={true}>
+        <Modal backdrop={true} className="register-modal">
             <div className="container register-modal-container">
                 <form onSubmit={signUp}>
                     <h3 className="text-center">Sign Up</h3>
                     <div className="form-group">
                         <label>First name</label>
-                        <input required type="text" minLength={10} maxLength={30} className="form-control" placeholder="First name" onChange={ e => { onChangeValue(e, setName) } }/>
+                        <input required type="text" minLength={3} maxLength={30} className="form-control" placeholder="First name" onChange={ e => { onChangeValue(e, setName) } }/>
                     </div>
                     <div className="form-group">
                         <label>Last name</label>
-                        <input required type="text" minLength={10} maxLength={30} className="form-control" placeholder="Last name" onChange={ e => { onChangeValue(e, setLastname) } }/>
+                        <input required type="text" minLength={3} maxLength={30} className="form-control" placeholder="Last name" onChange={ e => { onChangeValue(e, setLastname) } }/>
                     </div>
                     <div className="form-group">
                         <label>Email address</label>
@@ -70,7 +70,7 @@ const Register = () => {
                     </div>
                     <div className='form-group'>
                         <label htmlFor="address">Address</label>
-                        <input required type="text" minLength={0} maxLength={30} className="form-control" placeholder= "Enter Address" onChange={ e => { onChangeValue(e, setAddress) } }/>
+                        <input required type="text" minLength={10} maxLength={30} className="form-control" placeholder= "Enter Address" onChange={ e => { onChangeValue(e, setAddress) } }/>
                     </div>
                     <div className='form-group'>
                         <label htmlFor="cvu">CVU</label>
