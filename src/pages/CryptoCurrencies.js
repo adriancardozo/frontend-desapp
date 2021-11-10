@@ -14,8 +14,8 @@ const CryptoCurrencies = (props) => {
 
     return(
         <LoggedinPage>
-            {cryptoCurrencyList.map(cryptoCurrency =>
-                <ContentCard className="activity-card">
+            {cryptoCurrencyList.map((cryptoCurrency, i) =>
+                <ContentCard key={`cryptocurrency-${i}`} className="activity-card">
                     <ContentCardBody>
                         <div><b>Cryptocurrency name: </b>{cryptoCurrency.name}</div>
                         <div><b>Quotaton (ARS): </b>{cryptoCurrency.arPrice}</div>

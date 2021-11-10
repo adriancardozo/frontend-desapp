@@ -14,15 +14,15 @@ const Quotations = (props) => {
 
     return(
         <LoggedinPage>
-            {cryptoQuotations.map(cryptoQuotation => <>
-                <ContentCard className="activity-card">
+            {cryptoQuotations.map((cryptoQuotation, i) =>
+                <ContentCard key={`quotation-${i}`} className="activity-card">
                     <ContentCardBody>
                         <div><b>Cryptocurrency name: </b>{cryptoQuotation.name}</div>
                         <div><b>Quotation (ARS): </b>{cryptoQuotation.arPrice}</div>
                         <div><b>Quotation hour: </b>{cryptoQuotation.quotationHour}</div>
                     </ContentCardBody>
                 </ContentCard>
-            </>)}
+            )}
         </LoggedinPage>
     )
 }

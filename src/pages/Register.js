@@ -82,7 +82,7 @@ const Register = () => {
                     </div>
                     <ErrorMessage>{errorMessage}</ErrorMessage>
                     <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-                    <p>Already registered <Link to="/sign-in">sign in?</Link></p>
+                    <p>Already registered? <Link to="/sign-in">sign in</Link>.</p>
                 </form>
             </div>
         </Modal>

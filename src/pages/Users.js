@@ -14,8 +14,8 @@ const Users = (props) => {
 
     return(
         <LoggedinPage>
-            {userList.map(user => <>
-                <ContentCard className="activity-card">
+            {userList.map((user, i) =>
+                <ContentCard key={`user-${i}`} className="activity-card">
                     <ContentCardBody>
                         <div><b>Name: </b>{user.name}</div>
                         <div><b>Lastname: </b>{user.lastname}</div>
@@ -23,7 +23,7 @@ const Users = (props) => {
                         <div><b>Reputation: </b>{user.reputation}</div>
                     </ContentCardBody>
                 </ContentCard>
-            </>)}
+            )}
         </LoggedinPage>
     )
 }
