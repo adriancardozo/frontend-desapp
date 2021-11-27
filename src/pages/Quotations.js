@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { FormattedNumber } from "react-intl";
 import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
 import LoggedinPage from "../component/LoggedinPage";
@@ -20,7 +21,7 @@ const Quotations = (props) => {
                 <ContentCard key={`quotation-${i}`} className="activity-card">
                     <ContentCardBody>
                         <div><b>{t("cryptoName")}: </b>{cryptoQuotation.name}</div>
-                        <div><b>{t("quotationARS")}: </b>{cryptoQuotation.arPrice}</div>
+                        <div><b>{t("quotationARS")}: </b><FormattedNumber value={cryptoQuotation.arPrice} style="currency" currency="ARS" /></div>
                         <div><b>{t("quotationHour")}: </b>{cryptoQuotation.quotationHour}</div>
                     </ContentCardBody>
                 </ContentCard>

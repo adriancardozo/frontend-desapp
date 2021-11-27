@@ -5,6 +5,7 @@ import LoggedinPage from "../component/LoggedinPage";
 import '../styles/Activities.css'
 import { activities } from "../services/activities";
 import { useTranslation } from "react-i18next";
+import { FormattedNumber } from "react-intl";
 
 /* <FormattedNumber value={1000} style="currency" currency="ARS" /> */
 const Activities = (props) => {
@@ -23,13 +24,13 @@ const Activities = (props) => {
                     <ContentCardBody>
                         <div><b>{t("hour")}: </b>{activity.hour}</div>
                         <div><b>{t("cryptoName")}: </b>{activity.cryptoCurrencyName}</div>
-                        <div><b>{t("cryptoAmount")}: </b>{activity.cryptoCurrencyAmount}</div>
-                        <div><b>{t("cryptoQuotation")}: </b>{activity.cryptoCurrencyQuotation}</div>
-                        <div><b>{t("operationAmountARS")}: </b>{activity.arsOperationAmount}</div>
+                        <div><b>{t("cryptoAmount")}: </b><FormattedNumber value={activity.cryptoCurrencyAmount} style="decimal" /></div>
+                        <div><b>{t("cryptoQuotation")}: </b><FormattedNumber value={activity.cryptoCurrencyQuotation} style="currency" currency="ARS" /></div>
+                        <div><b>{t("operationAmountARS")}: </b><FormattedNumber value={activity.arsOperationAmount} style="currency" currency="ARS" /></div>
                         <div><b>{t("userName")}: </b>{activity.user.name}</div>
                         <div><b>{t("userLastname")}: </b>{activity.user.lastname}</div>
-                        <div><b>{t("userNumberOfOperations")}:</b>{activity.user.operations}</div>
-                        <div><b>{t("userReputation")}: </b>{activity.user.reputation}</div>
+                        <div><b>{t("userNumberOfOperations")}: </b><FormattedNumber value={activity.user.operations} style="decimal" /></div>
+                        <div><b>{t("userReputation")}: </b><FormattedNumber value={activity.user.reputation} style="decimal" /></div>
                     </ContentCardBody>
                 </ContentCard>
             )}
