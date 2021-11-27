@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
 import LoggedinPage from "../component/LoggedinPage";
@@ -6,6 +7,7 @@ import { users } from "../services/users";
 
 const Users = (props) => {
     const [userList, setUserList] = useState([])
+    const { t } = useTranslation()
 
     useEffect(() => {
         users(setUserList)
@@ -17,10 +19,10 @@ const Users = (props) => {
             {userList.map((user, i) =>
                 <ContentCard key={`user-${i}`} className="activity-card">
                     <ContentCardBody>
-                        <div><b>Name: </b>{user.name}</div>
-                        <div><b>Lastname: </b>{user.lastname}</div>
-                        <div><b>Number of operations: </b>{user.operations}</div>
-                        <div><b>Reputation: </b>{user.reputation}</div>
+                        <div><b>{t("name")}: </b>{user.name}</div>
+                        <div><b>{t("lastname")}: </b>{user.lastname}</div>
+                        <div><b>{t("numberOfOperations")}: </b>{user.operations}</div>
+                        <div><b>{t("reputation")}: </b>{user.reputation}</div>
                     </ContentCardBody>
                 </ContentCard>
             )}

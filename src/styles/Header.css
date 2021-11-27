@@ -9,7 +9,11 @@
 .header-mobile-logout-button {
   display: none;
 }
-  
+ 
+.header-right-mobile {
+  display: none;
+}
+
 @media only screen and (max-width: 768px) {
     .header-col {
       flex: unset;
@@ -23,11 +27,19 @@
       display: none;
     }
 
+    .header-right-no-mobile {
+      display: none;
+    }
+
     .logout-button-col {
       display: none;
     }
     .header-mobile-logout-button {
-      display: inline-block;
+      display: block;
+    }
+
+    .header-right-mobile {
+      display: block;
     }
   
     .mobile-logout-button-col {

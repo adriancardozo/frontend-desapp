@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
 import LoggedinPage from "../component/LoggedinPage";
@@ -6,6 +7,7 @@ import { quotations } from "../services/quotations";
 
 const Quotations = (props) => {
     const [cryptoQuotations, setCryptoQuotations] = useState([])
+    const { t } = useTranslation()
 
     useEffect(() => {
         quotations(setCryptoQuotations)
@@ -17,9 +19,9 @@ const Quotations = (props) => {
             {cryptoQuotations.map((cryptoQuotation, i) =>
                 <ContentCard key={`quotation-${i}`} className="activity-card">
                     <ContentCardBody>
-                        <div><b>Cryptocurrency name: </b>{cryptoQuotation.name}</div>
-                        <div><b>Quotation (ARS): </b>{cryptoQuotation.arPrice}</div>
-                        <div><b>Quotation hour: </b>{cryptoQuotation.quotationHour}</div>
+                        <div><b>{t("cryptoName")}: </b>{cryptoQuotation.name}</div>
+                        <div><b>{t("quotationARS")}: </b>{cryptoQuotation.arPrice}</div>
+                        <div><b>{t("quotationHour")}: </b>{cryptoQuotation.quotationHour}</div>
                     </ContentCardBody>
                 </ContentCard>
             )}

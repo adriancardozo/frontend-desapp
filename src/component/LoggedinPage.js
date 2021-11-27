@@ -11,7 +11,7 @@ const LoggedinPage = ({ children }) => {
         <div className="col-md-auto loggedin-page-central-col">
           {children}
         </div>
-        <div className="col loggedin-page-central-col" />
+        <div className="col loggedin-page-col" />
       </div>
     </>
   );

@@ -4,9 +4,12 @@ import ContentCardBody from "../component/ContentCardBody";
 import LoggedinPage from "../component/LoggedinPage";
 import '../styles/Activities.css'
 import { activities } from "../services/activities";
+import { useTranslation } from "react-i18next";
 
+/* <FormattedNumber value={1000} style="currency" currency="ARS" /> */
 const Activities = (props) => {
     const [activityList, setActivityList] = useState([])
+    const { t } = useTranslation()
 
     useEffect(() => {
         activities(setActivityList)
@@ -18,15 +21,15 @@ const Activities = (props) => {
             {activityList.map((activity, i) =>
                 <ContentCard key={`activity-${i}`} className="activity-card">
                     <ContentCardBody>
-                        <div><b>Hour: </b>{activity.hour}</div>
-                        <div><b>Cryptocurrency name: </b>{activity.cryptoCurrencyName}</div>
-                        <div><b>Cryptocurrency amount: </b>{activity.cryptoCurrencyAmount}</div>
-                        <div><b>Cryptocurrency quotation: </b>{activity.cryptoCurrencyQuotation}</div>
-                        <div><b>Operation amount (ARS): </b>{activity.arsOperationAmount}</div>
-                        <div><b>User name: </b>{activity.user.name}</div>
-                        <div><b>User lastname: </b>{activity.user.lastname}</div>
-                        <div><b>User number of operations:</b>{activity.user.operations}</div>
-                        <div><b>User reputation: </b>{activity.user.reputation}</div>
+                        <div><b>{t("hour")}: </b>{activity.hour}</div>
+                        <div><b>{t("cryptoName")}: </b>{activity.cryptoCurrencyName}</div>
+                        <div><b>{t("cryptoAmount")}: </b>{activity.cryptoCurrencyAmount}</div>
+                        <div><b>{t("cryptoQuotation")}: </b>{activity.cryptoCurrencyQuotation}</div>
+                        <div><b>{t("operationAmountARS")}: </b>{activity.arsOperationAmount}</div>
+                        <div><b>{t("userName")}: </b>{activity.user.name}</div>
+                        <div><b>{t("userLastname")}: </b>{activity.user.lastname}</div>
+                        <div><b>{t("userNumberOfOperations")}:</b>{activity.user.operations}</div>
+                        <div><b>{t("userReputation")}: </b>{activity.user.reputation}</div>
                     </ContentCardBody>
                 </ContentCard>
             )}

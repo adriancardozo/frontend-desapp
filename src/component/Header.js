@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import '../styles/Header.css'
 import LogoutButton from './LogoutButton';
 import { Link } from 'react-router-dom';
+import LanguageSelector from './LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const { t } = useTranslation()
   const [togglerClassName] = useState("navbar-toggler")
   const [collapseClassName] = useState("navbar-collapse")
   const [state, setState] = useState({
@@ -74,7 +77,7 @@ const Header = () => {
   return (
     
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <Link className="navbar-brand" to="/">CryptoP2P</Link>
+      <Link className="navbar-brand" to="/">{t("cryptoP2P")}</Link>
       <button onClick={ setNextState } { ...(state.toggler) } type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -82,24 +85,27 @@ const Header = () => {
       <div {...(state.collapse)} id="navbarTogglerDemo02">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item active">
-            <Link className="nav-link" to="/home">Home</Link>
+            <Link className="nav-link" to="/home">{t("home")}</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/activities">Activities</Link>
+            <Link className="nav-link" to="/activities">{t("activities")}</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/quotations">Quotations</Link>
+            <Link className="nav-link" to="/quotations">{t("quotations")}</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/cryptos">Cryptocurrencies</Link>
+            <Link className="nav-link" to="/cryptos">{t("cryptocurrencies")}</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/users">Users</Link>
+            <Link className="nav-link" to="/users">{t("users")}</Link>
           </li>
         </ul>
-        <LogoutButton className="header-mobile-logout-button">Logout</LogoutButton>
+        {/* <LanguageSelector className="header-right-mobile" /> */}
+        <LanguageSelector />
+        <LogoutButton className="header-right-mobile">{t("logout")}</LogoutButton>
       </div>
-      <LogoutButton className="header-logout-button" >Logout</LogoutButton>
+      {/* <LanguageSelector className="header-right-no-mobile" /> */}
+      <LogoutButton className="header-right-no-mobile" >{t("logout")}</LogoutButton>
     </nav>
   );
 }

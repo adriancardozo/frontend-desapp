@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
 import LoggedinPage from "../component/LoggedinPage";
@@ -6,6 +7,7 @@ import { cryptoCurrencies } from "../services/cryptoCurrencies";
 
 const CryptoCurrencies = (props) => {
     const [cryptoCurrencyList, setCryptoCurrencyList] = useState([])
+    const { t } = useTranslation()
 
     useEffect(() => {
         cryptoCurrencies(setCryptoCurrencyList)
@@ -17,9 +19,9 @@ const CryptoCurrencies = (props) => {
             {cryptoCurrencyList.map((cryptoCurrency, i) =>
                 <ContentCard key={`cryptocurrency-${i}`} className="activity-card">
                     <ContentCardBody>
-                        <div><b>Cryptocurrency name: </b>{cryptoCurrency.name}</div>
-                        <div><b>Quotaton (ARS): </b>{cryptoCurrency.arPrice}</div>
-                        <div><b>Quotation hour: </b>{cryptoCurrency.quotationHour}</div>
+                        <div><b>{t("cryptoName")}: </b>{cryptoCurrency.name}</div>
+                        <div><b>{t("quotationARS")}: </b>{cryptoCurrency.arPrice}</div>
+                        <div><b>{t("quotationHour")}: </b>{cryptoCurrency.quotationHour}</div>
                     </ContentCardBody>
                 </ContentCard>
             )}

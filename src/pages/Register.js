@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import ErrorMessage from "../component/ErrorMessage";
+import LanguageSelector from "../component/LanguageSelector";
 import Modal from "../component/Modal";
 import { useRegister } from "../services/register";
 import '../styles/Register.css'
@@ -15,6 +17,7 @@ const Register = () => {
     const [repeatedPassword, setRepeatedPassword] = useState("");
     const [cvu, setCvu] = useState("");
     const [walletAddress, setWalletAddress] = useState("");
+    const { t } = useTranslation()
     
     const [errorMessage, setErrorMessage] = useState("");
 
@@ -24,12 +27,12 @@ const Register = () => {
         if(password === repeatedPassword) {
             register({ name, lastname, address, email, password, cvu, walletAddress })
                 .catch(error => setErrorMessage(error.response.status === 409 ? 
-                    "The user already exists." : 
-                    "Unexpected error."
+                    t("theUserAlreadyExists") : 
+                    t("unexpectedError")
                 ));
         }
         else {
-            setErrorMessage("The password must be equals.");
+            setErrorMessage(t("thePaswordsMustBeEquals"));
         }
     }
 
@@ -45,44 +48,45 @@ const Register = () => {
 
     return (
         <Modal backdrop={true} className="register-modal">
+            <LanguageSelector />
             <div className="container register-modal-container">
                 <form onSubmit={signUp}>
-                    <h3 className="text-center">Sign Up</h3>
+                    <h3 className="text-center">{t("signUp")}</h3>
                     <div className="form-group">
-                        <label>First name</label>
-                        <input required type="text" minLength={3} maxLength={30} className="form-control" placeholder="First name" onChange={ e => { onChangeValue(e, setName) } }/>
+                        <label>{t("firstName")}</label>
+                        <input required type="text" minLength={3} maxLength={30} className="form-control" placeholder={t("firstName")} onChange={ e => { onChangeValue(e, setName) } }/>
                     </div>
                     <div className="form-group">
-                        <label>Last name</label>
-                        <input required type="text" minLength={3} maxLength={30} className="form-control" placeholder="Last name" onChange={ e => { onChangeValue(e, setLastname) } }/>
+                        <label>{t("lastName")}</label>
+                        <input required type="text" minLength={3} maxLength={30} className="form-control" placeholder={t("lastName")} onChange={ e => { onChangeValue(e, setLastname) } }/>
                     </div>
                     <div className="form-group">
-                        <label>Email address</label>
-                        <input required type="email" className="form-control" placeholder="Enter email" onChange={ e => { onChangeValue(e, setEmail) } }/>
+                        <label>{t("emailAddress")}</label>
+                        <input required type="email" className="form-control" placeholder={t("emailAddress")} onChange={ e => { onChangeValue(e, setEmail) } }/>
                     </div>
                     <div className="form-group">
-                        <label>Password</label>
-                        <input required type="password" className="form-control" placeholder="Enter password" onChange={ e => { onChangeValue(e, setPassword) } }/>
+                        <label>{t("password")}</label>
+                        <input required type="password" className="form-control" placeholder={t("enterPassword")} onChange={ e => { onChangeValue(e, setPassword) } }/>
                     </div>
                     <div className="form-group">
-                        <label>Repeat your password</label>
-                        <input required type="password" className="form-control" placeholder="Enter password" onChange={ e => { onChangeValue(e, setRepeatedPassword) } }/>
+                        <label>{t("repeatYourPassword")}</label>
+                        <input required type="password" className="form-control" placeholder={t("enterPassword")} onChange={ e => { onChangeValue(e, setRepeatedPassword) } }/>
                     </div>
                     <div className='form-group'>
-                        <label htmlFor="address">Address</label>
-                        <input required type="text" minLength={10} maxLength={30} className="form-control" placeholder= "Enter Address" onChange={ e => { onChangeValue(e, setAddress) } }/>
+                        <label htmlFor="address">{t("address")}</label>
+                        <input required type="text" minLength={10} maxLength={30} className="form-control" placeholder={t("enterAddress")} onChange={ e => { onChangeValue(e, setAddress) } }/>
                     </div>
                     <div className='form-group'>
-                        <label htmlFor="cvu">CVU</label>
-                        <input required type="text" minLength={22} maxLength={22} pattern="^\d+$" className="form-control" placeholder= "Enter CVU" onChange={ e => onChangeNumberValue(e, setCvu, "Ingrese un número de 22 dígitos.") }/>
+                        <label htmlFor="cvu">{t("CVU")}</label>
+                        <input required type="text" minLength={22} maxLength={22} pattern="^\d+$" className="form-control" placeholder={t("enterCVU")} onChange={ e => onChangeNumberValue(e, setCvu, "Ingrese un número de 22 dígitos.") }/>
                     </div>
                     <div className='form-group'>
-                        <label htmlFor="wallet-address">Wallet Address</label>
-                        <input required type="text" minLength={8} maxLength={8} pattern="^\d+$" className="form-control" placeholder= "Enter Wallet Address" onChange={ e => { onChangeNumberValue(e, setWalletAddress, "Ingrese un número de 8 dígitos.") } }/>
+                        <label htmlFor="wallet-address">{t("walletAddress")}</label>
+                        <input required type="text" minLength={8} maxLength={8} pattern="^\d+$" className="form-control" placeholder={t("enterWalletAddress")} onChange={ e => { onChangeNumberValue(e, setWalletAddress, "Ingrese un número de 8 dígitos.") } }/>
                     </div>
                     <ErrorMessage>{errorMessage}</ErrorMessage>
-                    <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-                    <p>Already registered? <Link to="/sign-in">sign in</Link>.</p>
+                    <button type="submit" className="btn btn-primary btn-block">{t("signUp")}</button>
+                    <p>{t("alreadyRegistered?")} <Link to="/sign-in">{t("signIn.")}</Link></p>
                 </form>
             </div>
         </Modal>
