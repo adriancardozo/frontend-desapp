@@ -7,7 +7,7 @@ const useLogout = () => {
     const history = useHistory();
   
     const logout = () => {
-      setUser({ token: "" }) // id: "", name: "", image: "", followers: [], timeline: [], 
+      setUser({ token: "" })
       localStorage.removeItem('user')
       history.push('/')
     }

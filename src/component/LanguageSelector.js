@@ -13,17 +13,11 @@ const LanguageSelector = ({ className }) => {
 
     return(
         <div className={`col-md-auto ${className ? className : ''}`}>
-            {/* <div className={`row ${className ? className : ''}`}> */}
-                <select value={ language } className="form-select" onChange={ selectLanguage }>
-                    <option value="en">EN</option>
-                    <option value="es">ES</option>
-                </select>
-            {/* </div> */}
+            <select value={ language } className="form-select" onChange={ selectLanguage }>
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+            </select>
         </div>
-        // <>
-        //     <button className="btn btn-primary">EN</button>
-        //     <button className="btn btn-secondary">ES</button>
-        // </>
     );
 }
 

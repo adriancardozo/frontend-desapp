@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { FormattedNumber } from "react-intl";
 import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
+import FormattedDateTime from "../component/FormatedDateTime";
 import LoggedinPage from "../component/LoggedinPage";
 import { cryptoCurrencies } from "../services/cryptoCurrencies";
 
@@ -21,8 +22,9 @@ const CryptoCurrencies = (props) => {
                 <ContentCard key={`cryptocurrency-${i}`} className="activity-card">
                     <ContentCardBody>
                         <div><b>{t("cryptoName")}: </b>{cryptoCurrency.name}</div>
+                        {/* eslint-disable-next-line */}
                         <div><b>{t("quotationARS")}: </b><FormattedNumber value={cryptoCurrency.arPrice} style="currency" currency="ARS" /></div>
-                        <div><b>{t("quotationHour")}: </b>{cryptoCurrency.quotationHour}</div>
+                        <div><b>{t("quotationHour")}: </b><FormattedDateTime value={cryptoCurrency.quotationHour} /></div>
                     </ContentCardBody>
                 </ContentCard>
             )}

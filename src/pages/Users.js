@@ -22,7 +22,9 @@ const Users = (props) => {
                     <ContentCardBody>
                         <div><b>{t("name")}: </b>{user.name}</div>
                         <div><b>{t("lastname")}: </b>{user.lastname}</div>
+                        {/* eslint-disable-next-line */}
                         <div><b>{t("numberOfOperations")}: </b><FormattedNumber value={user.operations} style="decimal" /></div>
+                        {/* eslint-disable-next-line */}
                         <div><b>{t("reputation")}: </b><FormattedNumber value={user.reputation} style="decimal" /></div>
                     </ContentCardBody>
                 </ContentCard>

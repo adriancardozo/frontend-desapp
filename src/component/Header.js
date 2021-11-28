@@ -100,11 +100,9 @@ const Header = () => {
             <Link className="nav-link" to="/users">{t("users")}</Link>
           </li>
         </ul>
-        {/* <LanguageSelector className="header-right-mobile" /> */}
         <LanguageSelector />
         <LogoutButton className="header-right-mobile">{t("logout")}</LogoutButton>
       </div>
-      {/* <LanguageSelector className="header-right-no-mobile" /> */}
       <LogoutButton className="header-right-no-mobile" >{t("logout")}</LogoutButton>
     </nav>
   );
