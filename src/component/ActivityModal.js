@@ -29,17 +29,17 @@ const ActivityModal = ({ sell, cryptoCurrency, onClose }) => {
         <Modal onClose={onClose} backdrop={true}>
             <div className="modal-header">
                 <div className="col">
-                <div className="row">
-                    <h4 className="modal-title">{t(activityTypeInformation.activity)} <i>{cryptoCurrency.name}</i></h4>
-                </div>
-                <div className="row">    
-                    <div className="form-group">
-                        {/* eslint-disable-next-line */}
-                        <label>{t("currentQuotation")}: <FormattedNumber value={ cryptoCurrency.arPrice } style="currency" currency="ARS" /></label>
-                        <label><i>{t("lastUpdate")}: <FormattedDateTime value={cryptoCurrency.quotationHour} /></i></label>
+                    <div className="row">
+                        <h4 className="modal-title">{t(activityTypeInformation.activity)} <i>{cryptoCurrency.name}</i></h4>
+                    </div>
+                    <div className="row">    
+                        <div className="form-group">
+                            {/* eslint-disable-next-line */}
+                            <label>{t("currentQuotation")}: <FormattedNumber value={ cryptoCurrency.arPrice } style="currency" currency="ARS" /></label>
+                            <label><i>{t("lastUpdate")}: <FormattedDateTime value={cryptoCurrency.quotationHour} /></i></label>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
             <div className="modal-body">
                 <form id="buyForm" onSubmit={submit}>

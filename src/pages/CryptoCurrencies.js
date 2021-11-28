@@ -5,6 +5,7 @@ import ActivityModal from "../component/ActivityModal";
 import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
 import ContentCardFooter from "../component/ContentCardFooter";
+import ContentCardHeader from "../component/ContentCardHeader";
 import FormattedDateTime from "../component/FormatedDateTime";
 import LoggedinPage from "../component/LoggedinPage";
 import ModalThrower from "../component/ModalThrower";
@@ -23,8 +24,11 @@ const CryptoCurrencies = (props) => {
         <LoggedinPage>
             {cryptoCurrencyList.map((cryptoCurrency, i) =>
                 <ContentCard key={`cryptocurrency-${i}`} className="activity-card">
+                    <ContentCardHeader>
+                        <h4>{cryptoCurrency.name}</h4>
+                    </ContentCardHeader>
                     <ContentCardBody>
-                        <div><b>{t("cryptoName")}: </b>{cryptoCurrency.name}</div>
+                        {/* <div><b>{t("cryptoName")}: </b>{cryptoCurrency.name}</div> */}
                         {/* eslint-disable-next-line */}
                         <div><b>{t("quotationARS")}: </b><FormattedNumber value={cryptoCurrency.arPrice} style="currency" currency="ARS" /></div>
                         <div><b>{t("quotationHour")}: </b><FormattedDateTime value={cryptoCurrency.quotationHour} /></div>

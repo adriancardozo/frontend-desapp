@@ -57,5 +57,16 @@
     "startTransaction": "Comenzar transacción",
     "yes": "Sí",
     "no": "No",
-    "startTransaction?": "¿Iniciar transacción?"
+    "startTransaction?": "¿Iniciar transacción?",
+    "typeSale": "Venta",
+    "typeBuy": "Compra",
+    "buyerInformation": "Información del comprador",
+    "sellerInformation": "Información del vendedor",
+    "confirmReceipt": "Confirmar recepción",
+    "makeTransfer": "Realizar transferencia",
+    "userInformation": "Información del usuario",
+    "operations": "Operaciones",
+    "quotation": "Cotización",
+    "amountToBuy": "Cantidad a comprar",
+    "postTime": "Hora de publicación"
 }

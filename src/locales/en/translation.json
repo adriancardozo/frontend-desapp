@@ -30,7 +30,7 @@
     "repeatYourPassword": "Repeat your password",
     "address": "Address",
     "CVU": "CVU",
-    "walletAddress": "Wallet Address",
+    "walletAddress": "Wallet address",
     "alreadyRegistered?": "Already registered?",
     "signIn.": "sign in.",
     "enterAddress": "Enter address",
@@ -57,5 +57,16 @@
     "startTransaction": "Start transaction",
     "yes": "Yes",
     "no": "No",
-    "startTransaction?": "Start transaction?"
+    "startTransaction?": "Start transaction?",
+    "typeSale": "Sale",
+    "typeBuy": "Buy",
+    "buyerInformation": "Buyer information",
+    "sellerInformation": "Seller information",
+    "confirmReceipt": "Confirm receipt",
+    "makeTransfer": "Make transfer",
+    "userInformation": "User information",
+    "operations": "Operations",
+    "quotation": "Quotation",
+    "amountToBuy": "Amount to buy",
+    "postTime": "Post time"
 }

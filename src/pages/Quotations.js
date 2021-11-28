@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { FormattedNumber } from "react-intl";
 import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
+import ContentCardHeader from "../component/ContentCardHeader";
 import FormattedDateTime from "../component/FormatedDateTime";
 import LoggedinPage from "../component/LoggedinPage";
 import { quotations } from "../services/quotations";
@@ -20,8 +21,11 @@ const Quotations = (props) => {
         <LoggedinPage>
             {cryptoQuotations.map((cryptoQuotation, i) =>
                 <ContentCard key={`quotation-${i}`} className="activity-card">
+                    <ContentCardHeader>
+                        <h4>{cryptoQuotation.name}</h4>
+                    </ContentCardHeader>
                     <ContentCardBody>
-                        <div><b>{t("cryptoName")}: </b>{cryptoQuotation.name}</div>
+                        {/* <div><b>{t("cryptoName")}: </b>{cryptoQuotation.name}</div> */}
                         {/* eslint-disable-next-line */}
                         <div><b>{t("quotationARS")}: </b><FormattedNumber value={cryptoQuotation.arPrice} style="currency" currency="ARS" /></div>
                         <div><b>{t("quotationHour")}: </b><FormattedDateTime value={cryptoQuotation.quotationHour} /></div>

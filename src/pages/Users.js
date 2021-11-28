@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { FormattedNumber } from "react-intl";
 import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
+import ContentCardHeader from "../component/ContentCardHeader";
 import LoggedinPage from "../component/LoggedinPage";
 import { users } from "../services/users";
 
@@ -19,11 +20,14 @@ const Users = (props) => {
         <LoggedinPage>
             {userList.map((user, i) =>
                 <ContentCard key={`user-${i}`} className="activity-card">
+                    <ContentCardHeader>
+                        <h3>{user.name} {user.lastname}</h3>
+                    </ContentCardHeader>
                     <ContentCardBody>
-                        <div><b>{t("name")}: </b>{user.name}</div>
-                        <div><b>{t("lastname")}: </b>{user.lastname}</div>
+                        {/* <div><b>{t("name")}: </b>{user.name}</div>
+                        <div><b>{t("lastname")}: </b>{user.lastname}</div> */}
                         {/* eslint-disable-next-line */}
-                        <div><b>{t("numberOfOperations")}: </b><FormattedNumber value={user.operations} style="decimal" /></div>
+                        <div><b>{t("operations")}: </b><FormattedNumber value={user.operations} style="decimal" /></div>
                         {/* eslint-disable-next-line */}
                         <div><b>{t("reputation")}: </b><FormattedNumber value={user.reputation} style="decimal" /></div>
                     </ContentCardBody>
