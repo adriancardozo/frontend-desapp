@@ -44,5 +44,18 @@
     "quotations": "Cotizaciones",
     "cryptocurrencies": "Criptoactivos",
     "users": "Usuarios",
-    "logout": "Salir"
+    "logout": "Salir",
+    "buy": "Comprar",
+    "sell": "Vender",
+    "postBuyActivity": "Publicar actividad de compra",
+    "postSaleActivity": "Publicar actividad de venta",
+    "cancel": "Cancelar",
+    "amount": "Cantidad",
+    "totalARSAmount": "Monto total (ARS)",
+    "currentQuotation": "Cotización actual",
+    "lastUpdate": "Última actualización",
+    "startTransaction": "Comenzar transacción",
+    "yes": "Sí",
+    "no": "No",
+    "startTransaction?": "¿Iniciar transacción?"
 }

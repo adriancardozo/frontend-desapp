@@ -44,5 +44,18 @@
     "quotations": "Quotations",
     "cryptocurrencies": "Cryptocurrencies",
     "users": "Users",
-    "logout": "Logout"
+    "logout": "Logout",
+    "buy": "Buy",
+    "sell": "Sell",
+    "postBuyActivity": "Post buy activity",
+    "postSaleActivity": "Post sale activity",
+    "cancel": "Cancel",
+    "amount": "Amount",
+    "totalARSAmount": "Total amount (ARS)",
+    "currentQuotation": "Current quotation",
+    "lastUpdate": "Last update",
+    "startTransaction": "Start transaction",
+    "yes": "Yes",
+    "no": "No",
+    "startTransaction?": "Start transaction?"
 }

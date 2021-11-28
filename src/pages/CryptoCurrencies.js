@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FormattedNumber } from "react-intl";
+import ActivityModal from "../component/ActivityModal";
 import ContentCard from "../component/ContentCard";
 import ContentCardBody from "../component/ContentCardBody";
+import ContentCardFooter from "../component/ContentCardFooter";
 import FormattedDateTime from "../component/FormatedDateTime";
 import LoggedinPage from "../component/LoggedinPage";
+import ModalThrower from "../component/ModalThrower";
 import { cryptoCurrencies } from "../services/cryptoCurrencies";
 
 const CryptoCurrencies = (props) => {
@@ -26,6 +29,14 @@ const CryptoCurrencies = (props) => {
                         <div><b>{t("quotationARS")}: </b><FormattedNumber value={cryptoCurrency.arPrice} style="currency" currency="ARS" /></div>
                         <div><b>{t("quotationHour")}: </b><FormattedDateTime value={cryptoCurrency.quotationHour} /></div>
                     </ContentCardBody>
+                    <ContentCardFooter>
+                        <div className="row justify-content-md-center">
+                            <div className="col-md-auto">
+                                <ModalThrower modal={ActivityModal} modalProps={{cryptoCurrency}}><button className="btn btn-primary">{t("buy")}</button></ModalThrower>
+                                <ModalThrower modal={ActivityModal} modalProps={{cryptoCurrency, sell: true}}><button className="btn btn-secondary">{t("sell")}</button></ModalThrower>
+                            </div>
+                        </div>
+                    </ContentCardFooter>
                 </ContentCard>
             )}
         </LoggedinPage>

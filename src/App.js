@@ -6,7 +6,6 @@ import Register from "./pages/Register.js";
 import { SessionProvider } from './services/Session';
 import PublicRoute from './component/PublicRoute';
 import PrivateRoute from './component/PrivateRoute';
-import Home from './pages/Home';
 import Quotations from './pages/Quotations';
 import Activities from './pages/Activities';
 import CryptoCurrencies from './pages/CryptoCurrencies';
@@ -21,7 +20,7 @@ function App() {
             <PublicRoute exact path='/' component={Login} />
             <PublicRoute path="/sign-in" component={Login} />
             <PublicRoute path="/sign-up" component={Register} />
-            <PrivateRoute path="/home" component={Home} />
+            <PrivateRoute path="/home" component={CryptoCurrencies} />
             <PrivateRoute path="/quotations" component={Quotations} />
             <PrivateRoute path="/activities" component={Activities} />
             <PrivateRoute path="/cryptos" component={CryptoCurrencies} />

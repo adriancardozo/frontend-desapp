@@ -7,6 +7,9 @@ import { activities } from "../services/activities";
 import { useTranslation } from "react-i18next";
 import { FormattedNumber } from "react-intl";
 import FormattedDateTime from "../component/FormatedDateTime";
+import ContentCardFooter from "../component/ContentCardFooter";
+import YesNoModal from "../component/YesNoModal";
+import ModalThrower from "../component/ModalThrower";
 
 const Activities = (props) => {
     const [activityList, setActivityList] = useState([])
@@ -37,6 +40,9 @@ const Activities = (props) => {
                         {/* eslint-disable-next-line */}
                         <div><b>{t("userReputation")}: </b><FormattedNumber value={activity.user.reputation} style="decimal" /></div>
                     </ContentCardBody>
+                    <ContentCardFooter>
+                        <ModalThrower modal={YesNoModal} modalProps={{message: t("startTransaction?")}}><button className="btn btn-outline-primary">{t("startTransaction")}</button></ModalThrower>
+                    </ContentCardFooter>
                 </ContentCard>
             )}
         </LoggedinPage>
