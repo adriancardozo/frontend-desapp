@@ -28,7 +28,6 @@ const CryptoCurrencies = (props) => {
                         <h4>{cryptoCurrency.name}</h4>
                     </ContentCardHeader>
                     <ContentCardBody>
-                        {/* <div><b>{t("cryptoName")}: </b>{cryptoCurrency.name}</div> */}
                         {/* eslint-disable-next-line */}
                         <div><b>{t("quotationARS")}: </b><FormattedNumber value={cryptoCurrency.arPrice} style="currency" currency="ARS" /></div>
                         <div><b>{t("quotationHour")}: </b><FormattedDateTime value={cryptoCurrency.quotationHour} /></div>

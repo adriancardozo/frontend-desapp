@@ -14,9 +14,7 @@ const Activities = (props) => {
 
     return(
         <LoggedinPage>
-            {activityList.map((activity, i) =>
-                <ActivityCard key={`activity-${i}`} {...{ activity }} />
-            )}
+            {activityList.map((activity, i) => <ActivityCard key={`activity-${i}`} {...{ activity }} />)}
         </LoggedinPage>
     )
 }

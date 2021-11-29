@@ -14,13 +14,13 @@ const Transaction = ({ transaction }) => {
         <LoggedinPage>
             <ContentCard>
                 <ActivityCardContent activity={transaction.activity}>
-                    {transaction.activity.type === "buy" ? <SellerInformation seller={transaction.seller} /> : <BuyerInformation buyer={transaction.buyer} />}
+                    {transaction.activity.type === "BUY" ? <SellerInformation seller={transaction.seller} /> : <BuyerInformation buyer={transaction.buyer} />}
                 </ActivityCardContent>
                 <ContentCardFooter>
                     <div className="row justify-content-md-center">
                         <div className="col-md-auto">
                             {
-                                transaction.activity.type === "buy" ? 
+                                transaction.activity.type === "BUY" ? 
                                 <button className="btn btn-outline-primary">{t("makeTransfer")}</button> :
                                 <button className="btn btn-outline-secondary">{t("confirmReceipt")}</button>
                             }

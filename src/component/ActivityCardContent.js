@@ -14,17 +14,17 @@ const ActivityCardContent = ({ activity, children }) => {
             <ContentCardHeader>
                 <div className="row">
                     <div className="col-md-auto">
-                        <h3>{activity.cryptoCurrencyName}</h3>
+                        <h3>{activity.cryptocurrency.name}</h3>
                         <div className="row">    
                             <div className="form-group">
                                 {/* eslint-disable-next-line */}
-                                <label>{t("quotation")}: <FormattedNumber value={ activity.cryptoCurrencyQuotation } style="currency" currency="ARS" /></label>
+                                <label>{t("quotation")}: <FormattedNumber value={ activity.cryptocurrency.quotation } style="currency" currency="ARS" /></label>
                             </div>
                         </div>
                     </div>
                     <div className="col">
                         {
-                            activity.type === "sale" ?
+                            activity.type === "SALE" ?
                             <button className="btn btn-secondary disabled">{t("typeSale")}</button> :
                             <button className="btn btn-primary disabled">{t("typeBuy")}</button>
                         }
@@ -36,9 +36,9 @@ const ActivityCardContent = ({ activity, children }) => {
                 <br />
                 <UserInformation user={activity.user} />
                 {/* eslint-disable-next-line */}
-                <div><b>{t("amountToBuy")}: </b><FormattedNumber value={activity.cryptoCurrencyAmount} style="decimal" /></div>
+                <div><b>{t("amountToBuy")}: </b><FormattedNumber value={activity.amount} style="decimal" /></div>
                 {/* eslint-disable-next-line */}
-                <div><b>{t("operationAmountARS")}: </b><FormattedNumber value={activity.arsOperationAmount} style="currency" currency="ARS" /></div>
+                <div><b>{t("operationAmountARS")}: </b><FormattedNumber value={activity.amountARS} style="currency" currency="ARS" /></div>
                 {children}
             </ContentCardBody>
         </>
