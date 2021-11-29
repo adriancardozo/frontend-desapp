@@ -1,8 +1,14 @@
-import React from "react";
-import LoggedinPage from "../component/LoggedinPage";
+import React, { useContext, useEffect } from "react";
+import { updateLoggedUser } from "../services/updateLoggedUser";
+import { SessionContext } from "../services/Session";
+import CryptoCurrencies from "./CryptoCurrencies";
 
 const Home = () => {
-    return(<LoggedinPage>Home</LoggedinPage>)
+    const { actions: { setUser } } = useContext(SessionContext);
+
+    useEffect(() => updateLoggedUser(setUser), [setUser])
+    
+    return(<CryptoCurrencies />)
 }
 
 export default Home

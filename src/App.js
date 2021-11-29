@@ -11,6 +11,7 @@ import Activities from './pages/Activities';
 import CryptoCurrencies from './pages/CryptoCurrencies';
 import Users from './pages/Users';
 import Transaction from './pages/Transaction';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
             <PublicRoute exact path='/' component={Login} />
             <PublicRoute path="/sign-in" component={Login} />
             <PublicRoute path="/sign-up" component={Register} />
-            <PrivateRoute path="/home" component={CryptoCurrencies} />
+            <PrivateRoute path="/home" component={Home} />
             <PrivateRoute path="/quotations" component={Quotations} />
             <PrivateRoute path="/activities" component={Activities} />
             <PrivateRoute path="/cryptos" component={CryptoCurrencies} />
