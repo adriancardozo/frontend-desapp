@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { FormattedNumber } from "react-intl";
-import ContentCard from "../component/ContentCard";
-import ContentCardBody from "../component/ContentCardBody";
-import ContentCardHeader from "../component/ContentCardHeader";
-import FormattedDateTime from "../component/FormatedDateTime";
+import LoadingAnimation from "../component/LoadingAnimation";
 import LoggedinPage from "../component/LoggedinPage";
+import QuotationCard from "../component/QuotationCard";
 import { quotations } from "../services/quotations";
 
 const Quotations = (props) => {
-    const [cryptoQuotations, setCryptoQuotations] = useState([])
-    const { t } = useTranslation()
+    const [cryptoQuotations, setCryptoQuotations] = useState()
 
     useEffect(() => {
         quotations(setCryptoQuotations)
@@ -19,19 +14,11 @@ const Quotations = (props) => {
 
     return(
         <LoggedinPage>
-            {cryptoQuotations.map((cryptoQuotation, i) =>
-                <ContentCard key={`quotation-${i}`} className="activity-card">
-                    <ContentCardHeader>
-                        <h4>{cryptoQuotation.name}</h4>
-                    </ContentCardHeader>
-                    <ContentCardBody>
-                        {/* <div><b>{t("cryptoName")}: </b>{cryptoQuotation.name}</div> */}
-                        {/* eslint-disable-next-line */}
-                        <div><b>{t("quotationARS")}: </b><FormattedNumber value={cryptoQuotation.arPrice} style="currency" currency="ARS" /></div>
-                        <div><b>{t("quotationHour")}: </b><FormattedDateTime value={cryptoQuotation.quotationHour} /></div>
-                    </ContentCardBody>
-                </ContentCard>
-            )}
+            {
+                cryptoQuotations ?
+                cryptoQuotations.map((quotation, i) => <QuotationCard key={`quotation-${i}`} {...{quotation}}/>) :
+                <LoadingAnimation />
+            }
         </LoggedinPage>
     )
 }

@@ -3,9 +3,10 @@ import LoggedinPage from "../component/LoggedinPage";
 import '../styles/Activities.css'
 import { activities } from "../services/activities";
 import ActivityCard from "../component/ActivityCard";
+import LoadingAnimation from "../component/LoadingAnimation";
 
 const Activities = (props) => {
-    const [activityList, setActivityList] = useState([])
+    const [activityList, setActivityList] = useState()
 
     useEffect(() => {
         activities(setActivityList)
@@ -14,7 +15,11 @@ const Activities = (props) => {
 
     return(
         <LoggedinPage>
-            {activityList.map((activity, i) => <ActivityCard key={`activity-${i}`} {...{ activity }} />)}
+            {
+                activityList ?
+                activityList.map((activity, i) => <ActivityCard key={`activity-${i}`} {...{ activity }} />):
+                <LoadingAnimation />
+            }
         </LoggedinPage>
     )
 }

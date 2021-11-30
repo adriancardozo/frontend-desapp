@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { FormattedNumber } from "react-intl";
-import ContentCard from "../component/ContentCard";
-import ContentCardBody from "../component/ContentCardBody";
-import ContentCardHeader from "../component/ContentCardHeader";
+import LoadingAnimation from "../component/LoadingAnimation";
 import LoggedinPage from "../component/LoggedinPage";
+import UserCard from "../component/UserCard";
 import { users } from "../services/users";
 
 const Users = (props) => {
-    const [userList, setUserList] = useState([])
-    const { t } = useTranslation()
+    const [userList, setUserList] = useState()
 
     useEffect(() => {
         users(setUserList)
@@ -18,21 +14,11 @@ const Users = (props) => {
 
     return(
         <LoggedinPage>
-            {userList.map((user, i) =>
-                <ContentCard key={`user-${i}`} className="activity-card">
-                    <ContentCardHeader>
-                        <h3>{user.name} {user.lastname}</h3>
-                    </ContentCardHeader>
-                    <ContentCardBody>
-                        {/* <div><b>{t("name")}: </b>{user.name}</div>
-                        <div><b>{t("lastname")}: </b>{user.lastname}</div> */}
-                        {/* eslint-disable-next-line */}
-                        <div><b>{t("operations")}: </b><FormattedNumber value={user.operations} style="decimal" /></div>
-                        {/* eslint-disable-next-line */}
-                        <div><b>{t("reputation")}: </b><FormattedNumber value={user.reputation} style="decimal" /></div>
-                    </ContentCardBody>
-                </ContentCard>
-            )}
+            {
+                userList ?
+                userList.map((user, i) => <UserCard key={`user-${i}`} {...{user}} />) :
+                <LoadingAnimation />
+            }
         </LoggedinPage>
     )
 }

@@ -78,5 +78,6 @@
     "canceled": "Canceled",
     "accept": "Accept",
     "reject": "Reject",
-    "transactions": "Transactions"
+    "transactions": "Transactions",
+    "loading...": "Loading..."
 }
