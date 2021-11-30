@@ -10,7 +10,7 @@ const useLogin = () => {
     const login = (data) => {
       return httpClient.post('/api/user/login', data)
       .then(response => { 
-        let userUpdated = { ...user , token: response.headers.authorization }
+        let userUpdated = { ...user , token: response.headers.authorization, transactions: [] }
         setUser(userUpdated)
         localStorage.setItem("user", JSON.stringify(userUpdated))
         history.push('/home');

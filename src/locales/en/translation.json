@@ -68,5 +68,15 @@
     "operations": "Operations",
     "quotation": "Quotation",
     "amountToBuy": "Amount to buy",
-    "postTime": "Post time"
+    "postTime": "Post time",
+    "state": "State",
+    "pendingAccept": "Pending accept",
+    "pendingTransfer": "Pending transfer",
+    "pendingConfirm": "Pending confirm",
+    "completed": "Completed",
+    "rejected": "Rejected",
+    "canceled": "Canceled",
+    "accept": "Accept",
+    "reject": "Reject",
+    "transactions": "Transactions"
 }

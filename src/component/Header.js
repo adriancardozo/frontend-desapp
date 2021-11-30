@@ -99,6 +99,9 @@ const Header = () => {
           <li className="nav-item">
             <Link className="nav-link" to="/users">{t("users")}</Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/transactions">{t("transactions")}</Link>
+          </li>
         </ul>
         <LanguageSelector />
         <LogoutButton className="header-right-mobile">{t("logout")}</LogoutButton>

@@ -68,5 +68,15 @@
     "operations": "Operaciones",
     "quotation": "Cotización",
     "amountToBuy": "Cantidad a comprar",
-    "postTime": "Hora de publicación"
+    "postTime": "Hora de publicación",
+    "state": "Estado",
+    "pendingAccept": "Aceptación pendiente",
+    "pendingTransfer": "Tranferencia pendiente",
+    "pendingConfirm": "Confirmación pendiente",
+    "completed": "Completada",
+    "rejected": "Rechazada",
+    "canceled": "Cancelada",
+    "accept": "Aceptar",
+    "reject": "Rechazar",
+    "transactions": "Transacciones"
 }
