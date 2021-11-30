@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router'
 import '../styles/Header.css'
 import LogoutButton from './LogoutButton';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const { t } = useTranslation()
+  const location = useLocation();
   const [togglerClassName] = useState("navbar-toggler")
   const [collapseClassName] = useState("navbar-collapse")
   const [state, setState] = useState({
@@ -85,22 +87,22 @@ const Header = () => {
       <div {...(state.collapse)} id="navbarTogglerDemo02">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item active">
-            <Link className="nav-link" to="/home">{t("home")}</Link>
+            <Link className={`nav-link ${location.pathname === "/home" ? "text-primary": ""}`} to="/home">{t("home")}</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/activities">{t("activities")}</Link>
+            <Link className={`nav-link ${location.pathname === "/activities" ? "text-primary": ""}`} to="/activities">{t("activities")}</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/quotations">{t("quotations")}</Link>
+            <Link className={`nav-link ${location.pathname === "/quotations" ? "text-primary": ""}`} to="/quotations">{t("quotations")}</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/cryptos">{t("cryptocurrencies")}</Link>
+            <Link className={`nav-link ${location.pathname === "/cryptos" ? "text-primary": ""}`} to="/cryptos">{t("cryptocurrencies")}</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/users">{t("users")}</Link>
+            <Link className={`nav-link ${location.pathname === "/users" ? "text-primary": ""}`} to="/users">{t("users")}</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/transactions">{t("transactions")}</Link>
+            <Link className={`nav-link ${location.pathname === "/transactions" ? "text-primary": ""}`} to="/transactions">{t("transactions")}</Link>
           </li>
         </ul>
         <LanguageSelector />
