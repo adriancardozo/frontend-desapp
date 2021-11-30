@@ -79,5 +79,10 @@
     "accept": "Accept",
     "reject": "Reject",
     "transactions": "Transactions",
-    "loading...": "Loading..."
+    "loading...": "Loading...",
+    "noTransactionsFound": "No transactions found",
+    "noUsersFound": "No users found",
+    "noQuotationsFound": "No quotations found",
+    "noCryptocurrenciesFound": "No cryptocurrencies found",
+    "noActivitiesFound": "No activities found"
 }

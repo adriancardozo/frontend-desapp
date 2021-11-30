@@ -4,9 +4,12 @@ import '../styles/Activities.css'
 import { activities } from "../services/activities";
 import ActivityCard from "../component/ActivityCard";
 import LoadingAnimation from "../component/LoadingAnimation";
+import { useTranslation } from "react-i18next";
+import ComponentList from "../component/ComponentList";
 
 const Activities = (props) => {
     const [activityList, setActivityList] = useState()
+    const { t } = useTranslation()
 
     useEffect(() => {
         activities(setActivityList)
@@ -17,7 +20,7 @@ const Activities = (props) => {
         <LoggedinPage>
             {
                 activityList ?
-                activityList.map((activity, i) => <ActivityCard key={`activity-${i}`} {...{ activity }} />):
+                <ComponentList emptyMessage={t("noActivitiesFound")} componentList={activityList.map((activity, i) => <ActivityCard key={`activity-${i}`} {...{ activity }} />)} /> :
                 <LoadingAnimation />
             }
         </LoggedinPage>
