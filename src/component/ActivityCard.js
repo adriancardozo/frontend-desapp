@@ -15,7 +15,7 @@ const ActivityCard = ({ activity }) => {
     const history = useHistory()
 
     const acceptStartTransaction = () => {
-        startTransaction({ activityId: activity.id }, (transaction) => history.push("/transaction", {transaction}))
+        startTransaction({ activityId: activity.id }, () => history.push("/transactions"))
     }
 
     return(

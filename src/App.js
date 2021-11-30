@@ -10,7 +10,6 @@ import Quotations from './pages/Quotations';
 import Activities from './pages/Activities';
 import CryptoCurrencies from './pages/CryptoCurrencies';
 import Users from './pages/Users';
-import Transaction from './pages/Transaction';
 import Home from './pages/Home';
 import Transactions from './pages/Transactions';
 
@@ -28,7 +27,6 @@ function App() {
             <PrivateRoute path="/activities" component={Activities} />
             <PrivateRoute path="/cryptos" component={CryptoCurrencies} />
             <PrivateRoute path="/users" component={Users} />
-            <PrivateRoute path="/transaction" component={Transaction} />
             <PrivateRoute path="/transactions" component={Transactions} />
           </Switch>
         </SessionProvider>

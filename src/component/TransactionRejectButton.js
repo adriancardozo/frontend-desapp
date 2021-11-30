@@ -3,14 +3,15 @@ import { useTranslation } from "react-i18next"
 import { rejectTransaction } from "../services/rejectTransaction"
 import TransactionActionButton from "./TransactionActionButton"
 
-const TransactionRejectButton = ({ idTransaction }) => {
+const TransactionRejectButton = ({ idTransaction, disable, onClick }) => {
     const { t } = useTranslation()
 
     const reject = () => {
+        onClick()
         rejectTransaction(idTransaction)
     }
 
-    return <TransactionActionButton onClick={reject} buttonType="warning">{t("reject")}</TransactionActionButton>
+    return <TransactionActionButton {...{disable}} onClick={reject} buttonType="warning">{t("reject")}</TransactionActionButton>
 }
 
 export default TransactionRejectButton
