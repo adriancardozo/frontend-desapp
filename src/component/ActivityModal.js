@@ -6,7 +6,7 @@ import { createActivity } from '../services/createActivity';
 import FormattedDateTime from './FormatedDateTime';
 import Modal from './Modal';
 
-const ActivityModal = ({ sell, cryptoCurrency, onClose }) => {
+const ActivityModal = ({ sell, cryptocurrency, onClose }) => {
     const { t } = useTranslation()
     const history = useHistory()
     const [amounts, setAmounts] = useState({amount: 0.0, amountARS: 0.0})
@@ -15,8 +15,8 @@ const ActivityModal = ({ sell, cryptoCurrency, onClose }) => {
     const submit = (e) => {
         e.preventDefault()
         createActivity({
-            cryptoName: cryptoCurrency.name,
-            cryptoQuotation: cryptoCurrency.arPrice,
+            cryptoName: cryptocurrency.name,
+            cryptoQuotation: cryptocurrency.arPrice,
             amount: amounts.amount,
             type: sell ? "SALE" : "BUY" 
         }, () => {
@@ -33,7 +33,7 @@ const ActivityModal = ({ sell, cryptoCurrency, onClose }) => {
     }
 
     const changeAmount = (e) => {
-        setAmounts({amount: e.target.value, amountARS: e.target.value * cryptoCurrency.arPrice})
+        setAmounts({amount: e.target.value, amountARS: e.target.value * cryptocurrency.arPrice})
     }
 
     return(
@@ -41,13 +41,13 @@ const ActivityModal = ({ sell, cryptoCurrency, onClose }) => {
             <div className="modal-header">
                 <div className="col">
                     <div className="row">
-                        <h4 className="modal-title">{t(activityTypeInformation.activity)} <i>{cryptoCurrency.name}</i></h4>
+                        <h4 className="modal-title">{t(activityTypeInformation.activity)} <i>{cryptocurrency.name}</i></h4>
                     </div>
                     <div className="row">    
                         <div className="form-group">
                             {/* eslint-disable-next-line */}
-                            <label>{t("currentQuotation")}: <FormattedNumber value={ cryptoCurrency.arPrice } style="currency" currency="ARS" /></label>
-                            <label><i>{t("lastUpdate")}: <FormattedDateTime value={cryptoCurrency.quotationHour} /></i></label>
+                            <label>{t("currentQuotation")}: <FormattedNumber value={ cryptocurrency.arPrice } style="currency" currency="ARS" /></label>
+                            <label><i>{t("lastUpdate")}: <FormattedDateTime value={cryptocurrency.quotationHour} /></i></label>
                         </div>
                     </div>
                 </div>

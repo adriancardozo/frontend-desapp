@@ -27,7 +27,16 @@ const Login = () => {
     return (
         <>
             <Modal backdrop={true}>
-                <LanguageSelector />
+                <div className="modal-header">
+                    <div className="row">
+                        <div className="col">
+                            <h4 className="modal-title">{t("cryptoP2P")}</h4>
+                        </div>
+                        <div className="col">
+                            <LanguageSelector />
+                        </div>
+                    </div>
+                </div>
                 <div className="container login-modal-container">
                     <form onSubmit={signin}>
                         <h3 className="text-center">{t("signIn")}</h3>

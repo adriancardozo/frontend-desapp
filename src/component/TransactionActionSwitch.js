@@ -43,7 +43,7 @@ const TransactionActionSwitch = ({ transaction }) => {
                 if(transaction.buyer){
                     return(
                         <>
-                            <TransactionConfirmReceiptButton onClick={() => setDisable(true)} idTransaction={transaction.id}/>
+                            <TransactionConfirmReceiptButton {...{disable}} onClick={() => setDisable(true)} idTransaction={transaction.id}/>
                             <TransactionCancelButton {...{disable}} onClick={() => setDisable(true)} idTransaction={transaction.id}/>
                         </>
                     )

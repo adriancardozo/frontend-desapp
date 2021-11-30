@@ -48,7 +48,16 @@ const Register = () => {
 
     return (
         <Modal backdrop={true} className="register-modal">
-            <LanguageSelector />
+            <div className="modal-header">
+                <div className="row">
+                    <div className="col">
+                        <h4 className="modal-title">{t("cryptoP2P")}</h4>
+                    </div>
+                    <div className="col">
+                        <LanguageSelector />
+                    </div>
+                </div>
+            </div>
             <div className="container register-modal-container">
                 <form onSubmit={signUp}>
                     <h3 className="text-center">{t("signUp")}</h3>
